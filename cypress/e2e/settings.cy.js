@@ -9,6 +9,10 @@ const settingPage = new SettingsPageObject();
 describe('Settings page', () => {
   let user;
 
+  before(() => {
+    cy.task('db:clear');
+  });
+
   beforeEach(() => {
     cy.task('db:clear');
     cy.task('generateUser').then((generateUser) => {
